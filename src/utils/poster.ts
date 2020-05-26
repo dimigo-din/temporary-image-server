@@ -3,7 +3,9 @@ import Poster from '../models/poster';
 export async function createPoster(title: string, url: string): Promise<void> {
   const isDuplicateExist = await Poster.findOne({ title });
   if (isDuplicateExist) {
-    throw new Error('Duplicate poster exists');
+    // throw new Error('Duplicate poster exists');
+    await Poster.findOneAndUpdate({ title }, { $set: { url } });
+    return;
   }
   const poster = await new Poster({
     title, url,
