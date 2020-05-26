@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import { Db } from 'mongodb';
 
+import { mongoConnectionString } from '../credentials.json';
+
 export default async (): Promise<Db> => {
   const mongooseOption = {
     useNewUrlParser: true,
@@ -15,7 +17,7 @@ export default async (): Promise<Db> => {
   });
 
   const connection = await mongoose.connect(
-    '',
+    mongoConnectionString,
     mongooseOption,
   );
 
