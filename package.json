@@ -2,7 +2,7 @@
   "name": "temporary-image-server",
   "version": "1.0.0",
   "description": "Temporary image server for dimigo dets",
-  "main": "lib/index.js",
+  "main": "lib/src/index.js",
   "scripts": {
     "build": "tsc",
     "start": "node lib/src/index.js",
