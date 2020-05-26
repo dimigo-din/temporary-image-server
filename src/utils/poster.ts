@@ -14,7 +14,7 @@ export async function createPoster(title: string, url: string): Promise<void> {
 }
 
 export async function findPoster(title: string): Promise<{ url: string }> {
-  const poster = await Poster.findOne({ title });
+  const poster = await Poster.findOne({ title: title.replace(' ', '+') });
   if (!poster) {
     throw new Error('No poster found');
   }
